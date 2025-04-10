@@ -1,0 +1,13 @@
+<p>atributo works!</p>
+<!-- DEV:COMMENT -> ngClass>
+<!-- agrega selectores de tipo clase siempre y cuando se cumpla una condicion -->
+<!-- <p [ngClass]="{'info': true}" >Mensaje importante</p> -->
+
+<!-- En este claso decimos que si messageType es igual a info se inserta la clase info -->
+<!-- <p [ngClass]="{'info': messageType==='info'}" >Mensaje importante</p> -->
+
+<!-- <p [ngClass]="messageType" >Mensaje importante</p> -->
+
+<!-- Se puede poner mas de una clase -->
+<p [ngClass]="{'info': messageType===1,'error': messageType!==1}" >Mensaje importante ngClass</p>
+
