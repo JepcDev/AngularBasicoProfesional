@@ -11,6 +11,7 @@ export class AtributoComponent implements OnInit {
 
   // messageType = 'info';
   messageType = 1;
+  inputValue = 'Your name please';
   ngOnInit(): void {
   }
 

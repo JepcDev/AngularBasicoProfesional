@@ -11,3 +11,13 @@
 <!-- Se puede poner mas de una clase -->
 <p [ngClass]="{'info': messageType===1,'error': messageType!==1}" >Mensaje importante ngClass</p>
 
+<!-- DEV:COMMENT -> ngStyle-->
+<!-- Aqui se modifica los estilos, y las condiciones son mas completas -->
+<p [ngStyle]="{'color' : messageType===1 ? 'seagreen' : 'orange'}">Mesaje ngStyle</p>
+
+<!-- DEV:COMMENT -> ngModel -->
+<!-- se usa en los formularios para decidir que hacer con los datos que se reciben en los inputs -->
+
+<!-- le pasamos el valor de inputValue al input -->
+<input type="text" [(ngModel)] ="inputValue">
+<p>Valor actual del input <b>{{inputValue}}</b></p>
