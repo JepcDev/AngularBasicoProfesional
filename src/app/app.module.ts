@@ -6,13 +6,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { AtributoComponent } from './directive/atributo/atributo.component';
 import { EstructuralComponent } from './directive/estructural/estructural.component';
 import { FormsModule } from '@angular/forms';
+import { PipesComponent } from './pipes/pipes.component';
+import { EstadosPipe } from './pipes/estados.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AtributoComponent,
-    EstructuralComponent
+    EstructuralComponent,
+    PipesComponent,
+    EstadosPipe
   ],
   imports: [
     BrowserModule,

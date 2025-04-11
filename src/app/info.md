@@ -111,3 +111,28 @@ un ngtemplate Es un div que no existe hasta que yo lo llame en alguna lugar del 
 
 ```
 
+### Pipes
+Son caractersticas de angular que nos permiten transformar los datos que vayamos a mostrar
+La creacion es como el de un componente "ng g c pipes"
+Pipe es una funcion que le vamos a pasar al template html para transformar los datos que se estan mostrando renderizando, podemos formaterar fechas, transformar a mayusculas,  ect
+
+ng g pipe pipes/estados //genera un pipe para que podamos customizarlo segun lo que necesitemos
+
+Es reutilizable en toda la app en cualquier lugar que llamemos nuestro pipe
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'estados'
+})
+export class EstadosPipe implements PipeTransform {
+
+  // es lo 1ro que se ejecuta cuando llamamos a nuestro pipe
+  // el value seria el name en pipes.component.html, es lo que llama al pipe estado
+  transform(value: unknown, ...args: unknown[]): unknown {
+    const text = value === 0 ? 'PENDIENTE' : 'REGISTRADO';
+    return text;
+  }
+
+}
+```

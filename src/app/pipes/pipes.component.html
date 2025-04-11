@@ -1,0 +1,26 @@
+<!-- Los pipes se usan dentro de interpolacion -->
+<div>
+  <h3>Uppercase:</h3>
+  {{name | uppercase}}
+
+  <h3>Titlecase:</h3>
+  {{name | titlecase}}
+  <!-- <br> -->
+
+  <h3>Lowercase:</h3>
+  {{apellido | lowercase}}
+
+</div>
+
+<div>
+  <h3>Date:</h3>
+  {{date | date:'short'}}
+</div>
+
+<div>
+  <h3>Estado de la transaccion: {{estadoPipe | estados}}</h3>
+  <!-- // nos es recomendable -->
+  <!-- <h3>Estado de la transaccion: {{getTexState()}}</h3> -->
+  <button (click)="changeState()">Cambiar estado</button>
+  <button (click)="changeStateNormal()">Cambiar estado</button>
+</div>

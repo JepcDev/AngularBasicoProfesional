@@ -25,7 +25,7 @@
 <ng-template #noContent><h3>Contenido no disponible</h3></ng-template>
 
 <!-- Aqui llamamos a ng-template y segun la condicion renderizamos o no a ng-template -->
-<!-- se puede poner directamente la referencia a ng-template o poner una condicion con logica js 
+<!-- se puede poner directamente la referencia a ng-template o poner una condicion con logica js
 Si es un erro(isError=true) se renderiza noContent sino no se renderizara.
 -->
 <ng-container *ngTemplateOutlet="isError ? noContent : null"></ng-container>
