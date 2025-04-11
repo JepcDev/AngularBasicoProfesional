@@ -1,1 +1,23 @@
 <p>estructural works!</p>
+
+<!-- DEV:COMMENT -> *ngIf-->
+<div class="error" *ngIf="isError">
+  <h3>Mensaje de error: Algo salio mal!</h3>
+</div>
+
+<button (click)="showError()">Mostrar error</button>
+<button (click)="hiddenError()">Ocultar error</button>
+
+<!-- DEV:COMMENT ->  *ngFor-->
+<ul>
+  <li *ngFor="let section of sections"><b>{{section.name}}:</b> ({{section.duracion}})</li>
+  <!-- <li *ngFor="let section of sections">{{section}}</li> -->
+</ul>
+
+<button (click)="showSection()">Mostrar Seccion</button>
+<button (click)="hiddenSection()">Ocultar Seccion</button>
+
+<!-- DEV:COMMENT -> ngTemplate-->
+<ng-template #noContent><h3>Contenido no disponible</h3></ng-template>
+<ng-container *ngTemplateOutlet="isError ? noContent : null"></ng-container>
+
