@@ -1,14 +1,17 @@
 <p>estructural works!</p>
 
 <!-- DEV:COMMENT -> *ngIf-->
+<!-- *ngIf="isError" Si isError es true se renderiza el elemento -->
 <div class="error" *ngIf="isError">
   <h3>Mensaje de error: Algo salio mal!</h3>
 </div>
 
+<!-- Cambiamos el valor de isError cada que presionamos el boton -->
 <button (click)="showError()">Mostrar error</button>
 <button (click)="hiddenError()">Ocultar error</button>
 
 <!-- DEV:COMMENT ->  *ngFor-->
+<!-- Vamos recorriendo todos los elementos que se encuentran en el array sections, mostramos(renderizamos) el nombre y duracion de cada elemento del array-->
 <ul>
   <li *ngFor="let section of sections"><b>{{section.name}}:</b> ({{section.duracion}})</li>
   <!-- <li *ngFor="let section of sections">{{section}}</li> -->
@@ -17,7 +20,13 @@
 <button (click)="showSection()">Mostrar Seccion</button>
 <button (click)="hiddenSection()">Ocultar Seccion</button>
 
-<!-- DEV:COMMENT -> ngTemplate-->
+<!-- DEV:COMMENT -> ngTemplateOutlet>
+<!-- renderizamos ng-template segun donde lo llamemos, ponemos el identificado #noContent(asi creamos en angular referencias a elementos html) para saber que ng-template estamos llamando -->
 <ng-template #noContent><h3>Contenido no disponible</h3></ng-template>
+
+<!-- Aqui llamamos a ng-template y segun la condicion renderizamos o no a ng-template -->
+<!-- se puede poner directamente la referencia a ng-template o poner una condicion con logica js 
+Si es un erro(isError=true) se renderiza noContent sino no se renderizara.
+-->
 <ng-container *ngTemplateOutlet="isError ? noContent : null"></ng-container>
 
