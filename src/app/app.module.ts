@@ -8,6 +8,7 @@ import { EstructuralComponent } from './directive/estructural/estructural.compon
 import { FormsModule } from '@angular/forms';
 import { PipesComponent } from './pipes/pipes.component';
 import { EstadosPipe } from './pipes/estados.pipe';
+import { CompraModule } from './compra/compra.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EstadosPipe } from './pipes/estados.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    CompraModule
   ],
   providers: [],
   bootstrap: [AppComponent]
