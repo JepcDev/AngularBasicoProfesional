@@ -1,6 +1,7 @@
+<p>Pipes Works!</p>
 <!-- Los pipes se usan dentro de interpolacion -->
 <div>
-  <h3>Uppercase:</h3>
+  <h3>Uppercase: {{name | uppercase}}</h3>
   {{name | uppercase}}
 
   <h3>Titlecase:</h3>
@@ -24,3 +25,10 @@
   <button (click)="changeState()">Cambiar estado</button>
   <button (click)="changeStateNormal()">Estado inicial</button>
 </div>
+
+<!-- routerLink: podemos ir entre rutas y poder navegar de un componente a otro utilizando simplemente esta directiva
+accedemos al componente estructural sin usar codigo js -->
+<!-- <button [routerLink]="['/estructural']" routerLinkActive="active">Ir a componente Estructural</button> -->
+
+<!--  una directiva para detectar si la ruta que hacer referencia ese elemento esta activo o no-->
+<!-- <button [routerLink]="['/pipes']" routerLinkActive="active">Ir a Pipes</button> -->

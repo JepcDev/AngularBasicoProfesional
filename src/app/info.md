@@ -139,14 +139,28 @@ export class EstadosPipe implements PipeTransform {
 
 ### Modulos
 Es la agrupacion de distintos componentes que van a compartir cierta funcionalidad y cierta logica de negocio,
+Todos los componentes, modulos independientes del proyecto van dentro de AppModule
 
-Todos los componentes del proyecto van dentro del AppModule
+Los modulos son agrupaciones de distintos componentes que comparten cierta funcionalidad y logica de negocio.
+Si un componente no esta dentro(declarado) de un modulos no va a poder renderizarse(existir) y el modulo que contiene estos componentes es llamado, declarado, importado, puesto en appModule para poder funcionar.
 
-Si un componente no esta dentro de un modulo no va a poder renderizarse y el modulo este siendo llamado o puesto en la app
-appComponent es el modulo principal donde se pueden agrupar los nuevos modulos, agruoar los componentes en este modulo nuevo y exportar el modulo y llamarlo dentro de appModule para tener la funcionalidad encapsulada.
+appComponent es el modulo principal donde se pueden agrupar los nuevos modulos(en imports),
+agrupar los componentes(listado,historial-compra,nueva-compra, etc) en este modulo nuevo(compra modulo), exportar el modulo y llamarlo dentro de appModule para tener la funcionalidad encapsulada.
 
 si creamos un modulo dentro de una carpeta los nuevos componentes que crearemos en la misma capeta de dicho modulo, se agruparan dentro del modulo.
 
 ng g m compra //Genera un modulo compra
 
 En app.modules.ts se importan[imports] los nuevos modulos que estan fuera del modulo principal, y gracias a ello vamos a poder acceder a los nuevos componentes que se encuentran en los nuevos modulos independientes que importamos, no olvidarse exportar los componentes para que puedan ser accesibles fuera del modulo indipendiente en el cual estan agrupados.
+
+### Rutas
+
+Son las rutas() donde se van a renderizar nuestras vistas de las paginas (pagina compra, pagina carrito, pagina principal, etc)
+
+siempre tenemos una ruta por cada pagina que vamos a ver.
+
+Ruta se entiende como la direccion web ejemplo: x.com y se nos muestran un listado de twits, x.com/perfil es la ruta(direccion web ) de nuestro perfil qeu renderiza todo el contenido de nuestro profile
+
+ng g m AppRouting //Se crea como un modulo y se lo integra en la raiz de la app
+
+El componente contenedor debe tener la etiqueta router-outlet para que nuestro componente que estemos llamando o querramos acceder pueda ser renderizado. por que un componente no se pude cargar, renderizar por cuenta propia necesita estar contenido dentro de un componente.
