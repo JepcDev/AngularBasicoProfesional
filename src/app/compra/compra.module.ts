@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListadoComponent } from './listado/listado.component';
 import { NuevaCompraComponent } from './nueva-compra/nueva-compra.component';
 import { HistorialCompraComponent } from './historial-compra/historial-compra.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +18,10 @@ import { HistorialCompraComponent } from './historial-compra/historial-compra.co
     ListadoComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    // Si no ponemos este componente aqui routerLink y demas elementos de las rutas no se reconoceran en el contenedor de las rutas hijas listado.component.html
+    // Tambien es el modulo contenedor del componente contenedor listadoCompra, ya que es el contenedor modulo de los diferentes componentes es necesario para que estos componentes puedan acceder a las directivas y elementos que nos ofrece RouterModule
+    RouterModule
   ]
 })
 export class CompraModule { }

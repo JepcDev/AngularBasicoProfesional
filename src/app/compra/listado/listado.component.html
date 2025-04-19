@@ -1,2 +1,18 @@
+<button
+  [routerLink]="['/compra/nueva']"
+  routerLinkActive="active">
+  Nueva
+</button>
+
+<button
+  [routerLink]="['/compra/historial']"
+  routerLinkActive="active">
+  Historial
+</button>
+<hr>
+<!-- si ovidamos el router-outlet no se renderizaran los componentes de las rutas hijas, ya que es este el contenedor de las rutas hijas-->
+<router-outlet></router-outlet>
+
 <p>listado works!</p>
-<app-nueva-compra></app-nueva-compra>
+<!-- <app-nueva-compra></app-nueva-compra> -->
+<!-- <app-historial-compra></app-historial-compra> -->

@@ -152,6 +152,32 @@ si creamos un modulo dentro de una carpeta los nuevos componentes que crearemos 
 ng g m compra //Genera un modulo compra
 
 En app.modules.ts se importan[imports] los nuevos modulos que estan fuera del modulo principal, y gracias a ello vamos a poder acceder a los nuevos componentes que se encuentran en los nuevos modulos independientes que importamos, no olvidarse exportar los componentes para que puedan ser accesibles fuera del modulo indipendiente en el cual estan agrupados.
+```typescript
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ListadoComponent } from './listado/listado.component';
+import { NuevaCompraComponent } from './nueva-compra/nueva-compra.component';
+import { HistorialCompraComponent } from './historial-compra/historial-compra.component';
+
+
+
+@NgModule({
+  declarations: [
+    ListadoComponent,
+    NuevaCompraComponent,
+    HistorialCompraComponent
+  ],
+  exports: [
+    // Solo se puede usar ListadoComponent desde fuera del modulo independiente de compra, se puede llamar externamente desde otro modulo o componente a este o estos componente
+    ListadoComponent,
+  ],
+  imports: [
+    CommonModule
+  ]
+})
+export class CompraModule { }
+
+```
 
 ### Rutas
 
@@ -164,3 +190,46 @@ Ruta se entiende como la direccion web ejemplo: x.com y se nos muestran un lista
 ng g m AppRouting //Se crea como un modulo y se lo integra en la raiz de la app
 
 El componente contenedor debe tener la etiqueta router-outlet para que nuestro componente que estemos llamando o querramos acceder pueda ser renderizado. por que un componente no se pude cargar, renderizar por cuenta propia necesita estar contenido dentro de un componente.
+
+```typescript
+import { NgModule } from '@angular/core';
+import { Route, RouterModule, Routes } from '@angular/router';
+import { PipesComponent } from './pipes/pipes.component';
+import { EstructuralComponent } from './directive/estructural/estructural.component';
+import { ListadoComponent } from './compra/listado/listado.component';
+// import { CommonModule } from '@angular/common';
+
+const routes: Routes = [
+  {path: 'pipes' , component: PipesComponent},
+  {path:'estructural', component: EstructuralComponent}
+  {path:'compra', component: ListadoComponent, }
+];
+
+@NgModule({
+  declarations: [],
+  imports: [
+    // CommonModule
+    RouterModule.forRoot(routes),
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class AppRoutingModule { }
+
+```
+
+### Rutas hijas
+Asi se crean Rutas hijas dentro de una ruta pre-existente dentro de nuesto modulo de rutas.
+
+En proyectos se suele tener rutas padres y rutas hijas, normalmente se usa cuenado el proyecto es grande y tenemos diferentes separaciones en modulos(logica del proyecto) del proyecto(modulo compra, venta, cliente etc y a su vez estos modulos tienen diferentes componentes(lista-compra, lista-venta, etc) y se necesitan rutas hijas para acceder a estos componentes hijos a travez de un componente padre)
+
+En resumente un componente padre que sea el contenedor de las siguientes rutas que necesite.
+
+
+```typescript
+// Se necesita hacer referencia a la ruta padre antes de las rutas hijas para poder acceder a estas rutas que renderizan estos componentes de las rutas hijas.
+// ListadoComponent -> Sera el contenedor de todas las rutas del modulo de compras
+
+```
+
