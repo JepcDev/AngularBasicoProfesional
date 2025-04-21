@@ -230,6 +230,26 @@ En resumente un componente padre que sea el contenedor de las siguientes rutas q
 ```typescript
 // Se necesita hacer referencia a la ruta padre antes de las rutas hijas para poder acceder a estas rutas que renderizan estos componentes de las rutas hijas.
 // ListadoComponent -> Sera el contenedor de todas las rutas del modulo de compras
-
+const routes: Routes = [
+  {path: 'pipes' , component: PipesComponent},
+  {path:'estructural', component: EstructuralComponent},
+  {
+    path: 'compra',
+    component: ListadoComponent,
+    children: [
+      { path: 'nueva', component: NuevaCompraComponent },
+      { path: 'historial', component: HistorialCompraComponent }
+    ],
+  },
+];
 ```
+
+### Guards
+Sirve para que antes de cargar una ruta, vamos a querer confirmar algo,si el usuario esta logeado o no, si el usuario tiene permiso o no para ver este contenido.
+
+<!-- ng g guard auth //canAtivate//permite ver si puedo o no a una ruta //genera un guard auth -->
+
+Los guards no necesitan estar declarados dentro de los modulos.
+Va anexado a la ruta que quiero proteger el acceso en el modulo de las rutas.
+se le pasa un array con los guards que se quiere tener en esa ruta como si fuera un atributo mas en la ruta.
 
