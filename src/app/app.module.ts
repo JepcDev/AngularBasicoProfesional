@@ -10,6 +10,7 @@ import { PipesComponent } from './pipes/pipes.component';
 import { EstadosPipe } from './pipes/estados.pipe';
 import { CompraModule } from './compra/compra.module';
 import { AppRoutingModule } from './app-routing.module';
+import { VentaModule } from './venta/venta.module';
 
 @NgModule({
   declarations: [
@@ -18,15 +19,16 @@ import { AppRoutingModule } from './app-routing.module';
     AtributoComponent,
     EstructuralComponent,
     PipesComponent,
-    EstadosPipe
+    EstadosPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     CompraModule,
+    VentaModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

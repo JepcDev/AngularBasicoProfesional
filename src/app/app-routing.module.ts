@@ -12,17 +12,23 @@ import { AuthGuard } from './auth.guard';
 // import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
-  {path:'', redirectTo: 'pipes', pathMatch:'full'},
-  {path: 'pipes' , component: PipesComponent},
-  {path:'estructural', component: EstructuralComponent},
+  { path: '', redirectTo: 'pipes', pathMatch: 'full' },
+  { path: 'pipes', component: PipesComponent },
+  { path: 'estructural', component: EstructuralComponent },
   {
     path: 'compra',
     component: ListadoComponent,
     canActivate: [AuthGuard],
     children: [
       { path: 'nueva', component: NuevaCompraComponent },
-      { path: 'historial', component: HistorialCompraComponent }
+      { path: 'historial', component: HistorialCompraComponent },
     ],
+  },
+  {
+    path: 'venta',
+    // solo es una funcion que devuelve una promesa devolviendo el VentaModule al final, es una promesa porque se va a llamar de forma asincronica
+    loadChildren: () =>
+      import('./venta/venta.module').then((m) => m.VentaModule),
   },
 ];
 
@@ -32,8 +38,6 @@ const routes: Routes = [
     // CommonModule
     RouterModule.forRoot(routes),
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
