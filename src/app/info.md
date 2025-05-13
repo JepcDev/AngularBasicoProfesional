@@ -320,3 +320,28 @@ Hay 2 tipos de formas de getsionar o manejar los formularios:
 Tenemos los validators que validan ciertas propiedades y funcionalidades de los formularios y segun se cumpla o no esa validacion sucede algo con el formulario.
 
 ng g c components/fomularios --skip-tests //crea componentes sin tests
+
+- Los FormControl, validan los campos de los fomularios, ademas hacen seguimiento a estos campos sin necesidad de tener un formulario completo, hace seguimieeto al valor y estado de un campo individual de un elemento del input del formulario.
+
+```typescript
+import { Component, OnInit } from "@angular/core";
+import { FormControl, Validators } from "@angular/forms";
+
+@Component({
+  selector: "app-fomularios",
+  templateUrl: "./fomularios.component.html",
+  styleUrls: ["./fomularios.component.scss"],
+})
+export class FomulariosComponent implements OnInit {
+  name = new FormControl("", [Validators.minLength(4), Validators.required]);
+  isChecked = new FormControl(false);
+  constructor() {}
+
+  ngOnInit(): void {}
+}
+```
+
+### FormGroups
+
+Es un objeto que puede englobar encapsular a muchso formCotnrols dentro.
+Podriamos armar los formularios del mismo nombre de los servicios que va a recibir el backend

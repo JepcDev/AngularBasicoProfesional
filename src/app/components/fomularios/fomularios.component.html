@@ -3,11 +3,11 @@
   <input type="text" placeholder="Nombre" [formControl]="name" />
   {{ name.value }}
   <button [disabled]="name.errors">Enviar</button>
-  <pre>
+  <!-- <pre>
     <code>
       {{name | json}}
     </code>
-  </pre>
+  </pre> -->
 </div>
 
 <div>
@@ -20,3 +20,21 @@
     </code>
   </pre> -->
 </div>
+
+<hr />
+
+<form [formGroup]="form">
+  <div>
+    <input type="text" placeholder="Nombre" formControlName="nameG" />
+    {{ form.get("nameG")?.value }}
+    <!-- <button [disabled]="name.errors">Enviar</button> -->
+  </div>
+
+  <div>
+    <input type="checkbox" formControlName="isCheckedG" />
+    {{ form.get("isCheckedG")?.value }}
+  </div>
+</form>
+
+{{ form.value | json }}
+<button [disabled]="form.get('nameG')?.errors">Enviar</button>
