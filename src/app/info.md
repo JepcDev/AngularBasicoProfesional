@@ -303,5 +303,20 @@ ng g c centa/listado
 ng g c venta/historial-venta
 ng g c venta/nueva-venta
 
-VentaModule va actuar como si fuera una parte independiente de nuestra app, porque no va se cargada al inicio, va tener todo lo necesario para poder iteractuar solo sin necesidad de estar cargandose al inicio,
+VentaModule va actuar como si fuera una parte independiente de nuestra app, porque no va ser cargada al inicio, va tener todo lo necesario para poder iteractuar solo sin necesidad de estar cargandose al inicio,
 ver: modulo de venta
+
+### Formularios
+
+Podemos utilizar los formularios sin necesidad de instalar ninguna libreria o complemento de terceros, solo con tener el proyecto ya se tiene una gran gama de posibilidades para crear y gestionar formularios.
+
+Hay 2 tipos de formas de getsionar o manejar los formularios:
+
+- Formularios por template:
+
+- Formularios reactivos: Son los formularios mas populares en proyectos grandes.
+  Son formularios que reaccionan a los datos que los usuarios ingresan en los inputs
+
+Tenemos los validators que validan ciertas propiedades y funcionalidades de los formularios y segun se cumpla o no esa validacion sucede algo con el formulario.
+
+ng g c components/fomularios --skip-tests //crea componentes sin tests

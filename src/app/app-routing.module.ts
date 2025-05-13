@@ -10,6 +10,7 @@ import { NuevaCompraComponent } from './compra/nueva-compra/nueva-compra.compone
 import { HistorialCompraComponent } from './compra/historial-compra/historial-compra.component';
 import { AuthGuard } from './auth.guard';
 // import { CommonModule } from '@angular/common';
+import { FomulariosComponent } from './components/fomularios/fomularios.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pipes', pathMatch: 'full' },
@@ -29,6 +30,10 @@ const routes: Routes = [
     // solo es una funcion que devuelve una promesa devolviendo el VentaModule al final, es una promesa porque se va a llamar de forma asincronica
     loadChildren: () =>
       import('./venta/venta.module').then((m) => m.VentaModule),
+  },
+  {
+    path: 'formularios',
+    component: FomulariosComponent,
   },
 ];
 

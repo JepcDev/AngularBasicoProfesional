@@ -1,8 +1,24 @@
-
+<!--
 <h1>
   El resultado es: {{resultado}}
 </h1>
 
 <button (click)="sumar(1,2)">
   Sumar
+</button> -->
+
+<button [routerLink]="['/estructural']" routerLinkActive="active">
+  Ir a componente Estructural
+</button>
+
+<button [routerLink]="['/pipes']" routerLinkActive="active">Ir a Pipes</button>
+
+<button [routerLink]="['/compra']" routerLinkActive="active">
+  Ir a Compra
+</button>
+
+<button [routerLink]="['/venta']" routerLinkActive="active">Venta</button>
+
+<button [routerLink]="['/formularios']" routerLinkActive="active">
+  Formularios
 </button>

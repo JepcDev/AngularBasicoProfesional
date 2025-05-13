@@ -5,12 +5,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AtributoComponent } from './directive/atributo/atributo.component';
 import { EstructuralComponent } from './directive/estructural/estructural.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PipesComponent } from './pipes/pipes.component';
 import { EstadosPipe } from './pipes/estados.pipe';
 import { CompraModule } from './compra/compra.module';
 import { AppRoutingModule } from './app-routing.module';
 import { VentaModule } from './venta/venta.module';
+import { FomulariosComponent } from './components/fomularios/fomularios.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { VentaModule } from './venta/venta.module';
     EstructuralComponent,
     PipesComponent,
     EstadosPipe,
+    FomulariosComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { VentaModule } from './venta/venta.module';
     AppRoutingModule,
     CompraModule,
     VentaModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

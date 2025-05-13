@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   // indica como se va a llamar el componente
   selector: 'app-header',
   // template:'Kamba desde el mimso componente' ,//Cambia desde el mismo componente no se necesita un html externo
-  templateUrl: './header.component.html',//se refiere al elemento externo html que se va renderizar en este componente
-  styleUrls: ['./header.component.scss']
+  templateUrl: './header.component.html', //se refiere al elemento externo html que se va renderizar en este componente
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
   // HeaderComponent es en realidad el componente
@@ -15,15 +15,14 @@ export class HeaderComponent implements OnInit {
 
   // variable de una clase,(: Date | null) le especificamos que tipo de datos puede almacenar
   // currentDate: Date | null = new Date();//
-  currentDate: Date | null = null;//
-  resultado: number = 0;
+  // currentDate: Date | null = null; //
+  // resultado: number = 0;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     // this.currentDate = new Date();
     // console.log(this.currentDate);
-
     // const myname = 'jose';
     // console.log(`Hola ${myname}`);
     // let suma:number = this.sumar(1,4);
@@ -31,8 +30,7 @@ export class HeaderComponent implements OnInit {
   }
 
   // una funcion en angular
-  sumar(a:number, b:number){
-    this.resultado = a + b;
-  }
-
+  // sumar(a:number, b:number){
+  //   this.resultado = a + b;
+  // }
 }

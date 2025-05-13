@@ -1,0 +1,22 @@
+<!-- <p>fomularios works!</p> -->
+<div>
+  <input type="text" placeholder="Nombre" [formControl]="name" />
+  {{ name.value }}
+  <button [disabled]="name.errors">Enviar</button>
+  <pre>
+    <code>
+      {{name | json}}
+    </code>
+  </pre>
+</div>
+
+<div>
+  <input type="checkbox" [formControl]="isChecked" />
+  {{ isChecked.value }}
+
+  <!-- <pre>
+    <code>
+      {{ isChecked | json }}
+    </code>
+  </pre> -->
+</div>
