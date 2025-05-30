@@ -344,4 +344,38 @@ export class FomulariosComponent implements OnInit {
 ### FormGroups
 
 Es un objeto que puede englobar encapsular a muchso formCotnrols dentro.
+
 Podriamos armar los formularios del mismo nombre de los servicios que va a recibir el backend
+
+```typescript
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+
+@Component({
+  selector: "app-fomularios",
+  templateUrl: "./fomularios.component.html",
+  styleUrls: ["./fomularios.component.scss"],
+})
+export class FomulariosComponent implements OnInit {
+  name = new FormControl("", [Validators.minLength(4), Validators.required]);
+  isChecked = new FormControl(false);
+
+  // FormGroup
+  form = new FormGroup({
+    nameG: new FormControl("", [Validators.minLength(4), Validators.required]),
+    isCheckedG: new FormControl(true),
+  });
+  constructor() {}
+
+  ngOnInit(): void {}
+}
+```
+
+### Arquitectura de servicios en Angular
+
+Desde angular hacemos consultas a la API REST y la API hace las consultas al servidor donde se encuentra nuestra base de datos y el servidor responde a la api y la api nos responde a nuestra consulta que hicimos desde angular en formato json.
+Angular App <=>API REST <=> SERVIDOR
+
+Nuestra angular App internamente trabaja con los COMPONENTES y estos componentes se encargan de renderizar lo que nosotros querramos mostrarles al usuario, son los SERVICIOS los que hacen las consultas a la API REST y la respuesta se las designan a los componentes.
+|        ANGULAR  APP    |
+COMPONENTES <== SERVICIOS <==> API REST <==> SERVIDOR
