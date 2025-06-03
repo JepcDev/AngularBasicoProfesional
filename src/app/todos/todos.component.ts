@@ -21,5 +21,7 @@ export class TodosComponent implements OnInit {
       console.log(res);
       this.todos = res;
     });
+
+    this.todoService.getComments(10).subscribe((res)=> console.log('comments ->', res));
   }
 }

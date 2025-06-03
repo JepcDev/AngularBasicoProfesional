@@ -13,7 +13,9 @@
 <!-- DEV:COMMENT ->  *ngFor-->
 <!-- Vamos recorriendo todos los elementos que se encuentran en el array sections, mostramos(renderizamos) el nombre y duracion de cada elemento del array-->
 <ul>
-  <li *ngFor="let section of sections"><b>{{section.name}}:</b> ({{section.duracion}})</li>
+  <li *ngFor="let section of sections">
+    <b>{{ section.name }}:</b> ({{ section.duracion }})
+  </li>
   <!-- <li *ngFor="let section of sections">{{section}}</li> -->
 </ul>
 
@@ -29,4 +31,3 @@
 Si es un erro(isError=true) se renderiza noContent sino no se renderizara.
 -->
 <ng-container *ngTemplateOutlet="isError ? noContent : null"></ng-container>
-

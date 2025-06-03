@@ -12,6 +12,8 @@ import { CompraModule } from './compra/compra.module';
 import { AppRoutingModule } from './app-routing.module';
 import { VentaModule } from './venta/venta.module';
 import { FomulariosComponent } from './components/fomularios/fomularios.component';
+import { TodosComponent } from './todos/todos.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,14 +24,17 @@ import { FomulariosComponent } from './components/fomularios/fomularios.componen
     PipesComponent,
     EstadosPipe,
     FomulariosComponent,
+    TodosComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    // Modulos creados
     AppRoutingModule,
     CompraModule,
     VentaModule,
-    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

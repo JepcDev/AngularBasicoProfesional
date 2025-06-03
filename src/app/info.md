@@ -377,5 +377,105 @@ Desde angular hacemos consultas a la API REST y la API hace las consultas al ser
 Angular App <=>API REST <=> SERVIDOR
 
 Nuestra angular App internamente trabaja con los COMPONENTES y estos componentes se encargan de renderizar lo que nosotros querramos mostrarles al usuario, son los SERVICIOS los que hacen las consultas a la API REST y la respuesta se las designan a los componentes.
-|        ANGULAR  APP    |
+| ANGULAR APP |
 COMPONENTES <== SERVICIOS <==> API REST <==> SERVIDOR
+
+### Servicios en angular (peticion get)
+
+impletementacion de servicios en angular para consumir servicios http
+usaremos la api rest jsonplaceholder.typicode.com, nos devuelve un array con objetos en este caso todos
+
+```json
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+  }
+]
+```
+
+- creamos un componente nuevo que se llamara todos
+  > ng g c todos
+- Dentro de la carpeta "todos" creamos un servico nuevo
+  > ng g s todo
+- Los servicios deberian estar en modulos pero si dentro del decorador injectable tenemos procidenIn: 'root' no es necesario ponerlo dentro de un modulo, gracias a esta propiedad este servicio puede ser usado por todos los modulos de la app
+- Si se quiere que el servicio solo funcione en modulos que lo importen se quita el providenIn
+
+```ts
+import { Injectable } from "@angular/core";
+
+@Injectable({
+  providedIn: "root",
+})
+export class TodoService {
+  constructor() {}
+}
+```
+
+- El servicio se encarga de hacer las peticiones http y hacer consultas a la api rest es el servicio de todo
+- en el modulo app.module importamos el modulo http ->
+
+```ts
+import { HttpClientModule } from "@angular/common/http";
+imports: [HttpClientModule];
+```
+
+- Lo que nosotros desemos usar dentro de un componente, directiva, servicios lo que querramos que este fuera del mismo se lo pone dentro del constructor.
+- El modulo que contiene el pipe, componente, directiva, servicio, debe tener la referencia de que cosa injectable, en este caso estamos usando e injectando "httpClient" en el servicio "todo.service" y la referencia a HttpClientModule esta dentro del app.module poreso es necesario importar el modulo dentro del app.module para cuando al final angular haga la injeccion de esa dependencia sepa de donde va sacar ese HttpClientModule.
+-Paso para conectar front con back
+  - agregamos un boton para movernos a la pagina renderizada del componente "todos"
+  - agregamos el componnete a app.routing.module
+- injectamos la dependencia del servicio de todos(todoService) en el componente de "todos" para hacer uso de este servicio y esto es por que el servicio esta fuera de nuestro componente, luego en el html del componente hacemos uso del resultado que nos devuelve el servicio "de la peticion GET a la API Rest". en este caso un array con todos(tareas)
+
+```ts
+// todo.service.ts
+import { Injectable } from "@angular/core";
+
+import { HttpClient } from "@angular/common/http";
+
+@Injectable({
+  providedIn: "root",
+})
+export class TodoService {
+  constructor(
+    // injectamos una dependencia de httpClient
+    private http: HttpClient
+  ) {}
+
+  getTodo() {
+    return this.http.get("https://jsonplaceholder.typicode.com/todos");
+  }
+}
+// todos.component.ts
+import { Component, OnInit } from "@angular/core";
+import { TodoService } from "./todo.service";
+
+@Component({
+  selector: "app-todos",
+  templateUrl: "./todos.component.html",
+  styleUrls: ["./todos.component.scss"],
+})
+export class TodosComponent implements OnInit {
+  todos: any[] = [];
+
+  constructor(
+    // agregamos el servicio de todos al componente de todos injectandolo como dependneica dentro del constructor ya que es un componente externo
+    // todoService es un instancia del servicio TodoService y por lo tanto podemos usar todas sus funcionalidades.
+    private todoService: TodoService
+  ) {}
+
+  ngOnInit(): void {
+    // obtenemos la respuesta del servicio de todoService al que nos suscribimos para obtener todos los cambios de la api actualizados
+    this.todoService.getTodo().subscribe((res: any) => {
+      console.log(res);
+      this.todos = res;
+    });
+  }
+}
+```
+- consumimos un servicio http en "todo.service"
+- Capturar la respues del servicio en todos.componen
+- Es respuesta la guardamos en un elemento, variable de la app
+- Mostramos, imprimimos la respuesta del servicio mediante todos.component.html

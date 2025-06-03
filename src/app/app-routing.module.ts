@@ -11,6 +11,7 @@ import { HistorialCompraComponent } from './compra/historial-compra/historial-co
 import { AuthGuard } from './auth.guard';
 // import { CommonModule } from '@angular/common';
 import { FomulariosComponent } from './components/fomularios/fomularios.component';
+import { TodosComponent } from './todos/todos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pipes', pathMatch: 'full' },
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'formularios',
     component: FomulariosComponent,
+  },
+  {
+    path: 'todos',
+    component: TodosComponent
   },
 ];
 
