@@ -479,3 +479,11 @@ export class TodosComponent implements OnInit {
 - Capturar la respues del servicio en todos.componen
 - Es respuesta la guardamos en un elemento, variable de la app
 - Mostramos, imprimimos la respuesta del servicio mediante todos.component.html
+
+### HTTP - Peticion POST, PUT, DELETE
+- Llamada http con POST es como una peticion GET pero enviamos un body(cuerpo) con datos, con GET se puede enviar datos pero estan en forma de params que van anexarse dentro de la peticion en la URL.
+- Con POST podemos enviar distintos datos en forma de body sin tener que alterar la construccion de la URL. La respuesta de esta peticion son es visible con aplicaicones externas como postman etc o haciendo una consulta desde la aplciaicon.
+
+- Creamos la funcion getPosts en todoService.ts para hacer la peticion.
+- En todo.component nos suscribimos para recibir todas las actualizaciones de los datos del servicio.
+- Creamos un body para la peticion POST

@@ -18,6 +18,8 @@ export class TodoService {
 
   getComments(postIdP: number){
     const params = {
+      // como el key y el valor se llman igual se podria dejar en postId
+      // postIdP
       postId: postIdP
     }
     // return this.http.get('https://jsonplaceholder.typicode.com/comments?postId=1');
@@ -25,5 +27,15 @@ export class TodoService {
     return this.http.get(`https://jsonplaceholder.typicode.com/comments`,{
       params,
     });
+  }
+
+  getPosts(){
+    const body = {
+      id: 1,
+      comment: 'Hola',
+      date:'2022-01-01'
+    }
+    return this.http.post(`https://jsonplaceholder.typicode.com/posts`,body);
+    // return this.http.post(`https://jsonplaceholder.typicode.com/posts`,null);
   }
 }
