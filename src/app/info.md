@@ -485,5 +485,27 @@ export class TodosComponent implements OnInit {
 - Con POST podemos enviar distintos datos en forma de body sin tener que alterar la construccion de la URL. La respuesta de esta peticion son es visible con aplicaicones externas como postman etc o haciendo una consulta desde la aplciaicon.
 
 - Creamos la funcion getPosts en todoService.ts para hacer la peticion.
-- En todo.component nos suscribimos para recibir todas las actualizaciones de los datos del servicio.
-- Creamos un body para la peticion POST
+- En todo.component creamos y nos suscribimos al metodo getposts() para recibir todas las actualizaciones de los datos del servicio.
+- Creamos un body para la peticion POST, en el metodo getposts del servicio todo.servicie
+
+### HTTP - Interceptores
+- Puede ser util cuando querramos interceptamos todas peticiones http que salgan de nuestro frontend y ponerle cosas como un nuevo header, agregar un nuevo parametro o solamnete crear un log o hacer una especie de logger para saber en un futuro cuantas peticiones se estan haciendo al dia desde el front, cual es el servidor mas visitado, nos permite interceptar todas las peticiones http que salgan del front y aplicarle la logica que querramos.
+
+- creamos el servicio interceptor en la carpeta services "ng g s services/interceptor"
+  - añadimos a la clase implements HttpInteceptor
+  - Tendremos que crear una funcion intercept e implementarla ya que es una funcion del HttpInteceptor
+
+- En  app.module
+  - Al ser el servicio un interceptor no va a estar dentro de un componente sino dentro de un modulo, todo lo que salga de ese modulo va a ser interceptado por el interceptor, por eso se lo importa en el app module
+
+Captura todos los servicios de la app
+- Por lo general se utiliza para capturar todas la peticiones y crear nuevas cabeceras, ya que algunas veces debemos enviar tokens o algo que os identifique que somos usuarios autorizados y logeados dentro de la app
+
+- En vez que de estar agragando la cabezera en cada una de las peticiones se estaria haciendo a nivel general interceptando todas las peticiones y modificandolas para que la logica que venga de los servicios no rquiera estar copiando y pegando nuevo codigo sino sino que con el codigo sel interceptor se puede hacer de una forma mas homologada a lo que se esta buscando.
+
+- Tambien se puede guardar a que lugar se le esta haciendo una peticion, guardar el tiempo que dura una peticion en la que entra y sale una respuesta.
+
+- Intercepta las peticiones que salen o entran al frontend
+
+
+
