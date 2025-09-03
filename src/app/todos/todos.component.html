@@ -1,7 +1,9 @@
 <p>todos works!</p>
-
+<button (click)="updatePost()">Actualizar posts</button>
 <ol>
   <li *ngFor="let todo of todos">
     {{ todo.title }}: <i>{{ todo.completed }}</i>
   </li>
 </ol>
+
+<!-- <app-todo></app-todo> -->

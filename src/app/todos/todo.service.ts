@@ -1,18 +1,26 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
 
+  // Source -> es como el canal de la informacion,// lo hacemos de esta manera para tener conectado este Sourse con un observable que va poder consumido desde nuestros componentes.
+  postSourse = new Subject();//subject se inporta de rxjs
+  // las variables observables llevan un "$" al final del nombre
+  // Este observable va poder ser consumido por o desde nuestros componentes.
+  posts$ = this.postSourse.asObservable();
   constructor(
     // injectamos una dependencia de httpClient
     private http: HttpClient
   ) { }
 
+  // getTodo devuelve un observable y por lo tanto lo que devuelve en el return es un observable
   getTodo(){
+    // Esto vendria a ser un obsevable.
     return this.http.get('https://jsonplaceholder.typicode.com/todos');
   }
 

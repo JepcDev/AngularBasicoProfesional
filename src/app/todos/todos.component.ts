@@ -16,17 +16,29 @@ export class TodosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // this.todoService.posts$.subscribe((res)=>{
+    //   console.log('Nueva data: ',res);
+    // });
     // obtenemos la respuesta del servicio de todoService al que nos suscribimos para obtener todos los cambios de la api actualizados
-    this.todoService.getTodo().subscribe((res: any) => {
-      console.log(res);
-      this.todos = res;
-    });
+    // res esta el resultado que recibimos de la consulta al servicio.
+    // this.todoService.getTodo().subscribe((res: any) => {
+    //   console.log(res);
+    //   this.todos = res;
+    // });
 
-    this.todoService
-      .getComments(10)
-      .subscribe((res) => console.log('comments ->', res));
-    this.todoService
-      .getPosts()
-      .subscribe((res) => console.log('Posts ->', res));
+    // this.todoService
+    //   .getComments(10)
+    //   .subscribe((res) => console.log('comments ->', res));
+    // this.todoService
+    //   .getPosts()
+    //   .subscribe((res) => console.log('Posts ->', res));
+  }
+
+  updatePost(){
+    // next es como abrir el caño de la mangera, es la siguiente informacion que voy a mandar
+    // actualizamos la salida de la mangera postSourse
+    // Estamos emitiendo la informacion nueva pero no hay nadie suscrito para que reviba la informaicon que se esta emitiendo, para que yo pueda imporimirla en consola.
+    // No hay un comonetnte que este suscrito a esta informacion.
+    this.todoService.postSourse.next('informacion!!');
   }
 }

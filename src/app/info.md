@@ -507,5 +507,17 @@ Captura todos los servicios de la app
 
 - Intercepta las peticiones que salen o entran al frontend
 
+## RxJS
+### Introduccion a RxJS
+- RxJS es una libreria de js
+- Permite comunicar informacion entre distintos lugares, con Observers y subjects.
+- ejemplo los observers y subjects son como una cuenta de twitter y los subcriptores, ya que una cuenta de X es un canal de informacion puede emitir distintos tipos de informacion en cualquier momento.
+- La cuenta de twitter o X es el canal de informacion y los seguidores serian los observers que quieren ver la informacion que comparte la cuenta, los seguidores estarian observando al subject que serian la cuenta de twitter y el subject notificaria a los seguidoreso subcristores(observers) cuando emita una nueva informacion,
+- Se puede ser subscriptor de una cuenta de X cuando la cuenta emite un nuevo twitt a los subcriptores le llega una notificaicon de que se emitio un nuevo twitte una nueva informacion.
+- Patron observer -> Tenemos muchos observadores observando y un solo subject  cuando este subject emita una nueva informacion esta informacion le llegara a todos los observers o subcriptores que estan subscritos a este subject.
+Observables -> medio por el cual va a pasar la informacion de un punto a otros puntos.
+Operators -> Son los que transforman la salida de la informacion.
 
-
+### RxJS - Casos prácticos
+- creamos un componente "todo" que va a suscribirse a la variable observable del servicio todo
+- podemos conectar componentes a traves de los observables para que puedan compartir informacion entre componententes sin tener ninguna relacion o que no tienen ninguna relacion.
