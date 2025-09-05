@@ -39,6 +39,6 @@ export class TodosComponent implements OnInit {
     // actualizamos la salida de la mangera postSourse
     // Estamos emitiendo la informacion nueva pero no hay nadie suscrito para que reviba la informaicon que se esta emitiendo, para que yo pueda imporimirla en consola.
     // No hay un comonetnte que este suscrito a esta informacion.
-    this.todoService.postSourse.next('informacion!!');
+    this.todoService.postSourse.next([1,2,3,4,5]);
   }
 }

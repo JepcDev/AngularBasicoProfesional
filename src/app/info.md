@@ -521,3 +521,6 @@ Operators -> Son los que transforman la salida de la informacion.
 ### RxJS - Casos prácticos
 - creamos un componente "todo" que va a suscribirse a la variable observable del servicio todo
 - podemos conectar componentes a traves de los observables para que puedan compartir informacion entre componententes sin tener ninguna relacion o que no tienen ninguna relacion.
+
+### RxJS - Operadores
+Se encargan de transformar la informacion que nos llega al final al suscribirnos a nuestros observables.
